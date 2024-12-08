@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "gIQ2VotD552Mywm5ob3B2rbKbrTbqXo9C4rYyxwh1Or1x8OhB+3yl+3mHxT+gsGAlmSq5CX88PAjBCmdFyUZ+Q==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\nidha\\OneDrive\\Bureau\\FeelAnalyzer\\FeelAnalyzer.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\nidha\\.nuget\\packages\\opencvsharp4\\4.10.0.20241108\\opencvsharp4.4.10.0.20241108.nupkg.sha512",
+    "C:\\Users\\nidha\\.nuget\\packages\\system.memory\\4.5.5\\system.memory.4.5.5.nupkg.sha512",
+    "C:\\Users\\nidha\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
