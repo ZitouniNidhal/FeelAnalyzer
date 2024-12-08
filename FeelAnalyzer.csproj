@@ -1,15 +1,111 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+﻿<Window x:Class="EmotionApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Emotion Analyzer" Height="500" Width="600" Background="#f4f4f9" >
 
-  <PropertyGroup>
-    <OutputType>WinExe</OutputType>
-    <TargetFramework>net8.0-windows</TargetFramework>
-    <Nullable>enable</Nullable>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <UseWPF>true</UseWPF>
-  </PropertyGroup>
+    <Window.Resources>
+        <!-- Style pour les boutons avec effets d'ombre et de dégradé -->
+        <Style TargetType="Button">
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Width" Value="250"/>
+            <Setter Property="Height" Value="50"/>
+            <Setter Property="Background" Value="#4CAF50"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Padding" Value="10"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect Color="Black" Direction="270" ShadowDepth="5" Opacity="0.4" />
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <EventTrigger RoutedEvent="Button.MouseEnter">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimation Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)"
+                                            To="#009688" Duration="0:0:0.3"/>
+                            <DoubleAnimation Storyboard.TargetProperty="(Button.Width)"
+                                             To="260" Duration="0:0:0.3"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+                <EventTrigger RoutedEvent="Button.MouseLeave">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimation Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)"
+                                            To="#4CAF50" Duration="0:0:0.3"/>
+                            <DoubleAnimation Storyboard.TargetProperty="(Button.Width)"
+                                             To="250" Duration="0:0:0.3"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Style.Triggers>
+        </Style>
 
-  <ItemGroup>
-    <PackageReference Include="OpenCvSharp4" Version="4.10.0.20241108" />
-  </ItemGroup>
+        <!-- Style pour le TextBox avec bordures modernes -->
+        <Style TargetType="TextBox">
+            <Setter Property="Width" Value="400"/>
+            <Setter Property="Height" Value="100"/>
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="TextWrapping" Value="Wrap"/>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="BorderBrush" Value="#4CAF50"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="Padding" Value="10"/>
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect Color="Black" Direction="270" ShadowDepth="3" Opacity="0.3"/>
+                </Setter.Value>
+            </Setter>
+        </Style>
 
-</Project>
+        <!-- Style pour la barre d'information en bas -->
+        <Style TargetType="TextBlock" x:Key="StatusText">
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Foreground" Value="Gray"/>
+            <Setter Property="Padding" Value="5"/>
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <!-- Titre de l'application -->
+        <TextBlock Text="Analyseur d'Émotions" FontSize="36" FontWeight="Bold" 
+                   HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,20,0,0" />
+
+        <!-- Section Analyse Faciale avec un style -->
+        <Button Content="Analyser les Émotions Faciales" 
+                Name="AnalyzeFaceButton" 
+                VerticalAlignment="Top" Margin="10,100,10,0" 
+                Click="AnalyzeFacialEmotion_Click" 
+                Background="#008CBA"/>
+
+        <!-- Section Analyse Textuelle -->
+        <TextBox Name="TextInputBox" Height="100" Width="400" 
+                 HorizontalAlignment="Center" VerticalAlignment="Center" 
+                 Margin="10" Text="Entrez le texte ici..." />
+
+        <Button Content="Analyser les Émotions Textuelles" 
+                HorizontalAlignment="Center" VerticalAlignment="Bottom" 
+                Margin="10,10,10,50" Click="AnalyzeTextEmotion_Click" 
+                Background="#FF5733"/>
+
+        <!-- Barre d'Information en bas -->
+        <TextBlock Name="ResultTextBlock" 
+                   Style="{StaticResource StatusText}" 
+                   HorizontalAlignment="Center" VerticalAlignment="Bottom" 
+                   Margin="10,0,10,20" />
+
+    </Grid>
+</Window>
