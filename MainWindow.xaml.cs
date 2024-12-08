@@ -1,9 +1,16 @@
+using System;
 using System.Windows;
+using System.Windows.Controls;
 
 public partial class MainWindow : Window
 {
+    public void InitializeComponent()
+    {
+        // Auto-generated method to initialize the components
+    }
     private FacialEmotionAnalyzer facialAnalyzer;
     private TextEmotionAnalyzer textAnalyzer;
+    private TextBox TextInputBox;
 
     public MainWindow()
     {

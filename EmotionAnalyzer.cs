@@ -1,5 +1,9 @@
 namespace FeelAnalyzer
+{public abstract class EmotionAnalyzerBase
 {
+    public abstract void Emot();
+}
+
     public abstract class EmotionAnalyzer
     {
         public abstract string Analyze(string imagePath);

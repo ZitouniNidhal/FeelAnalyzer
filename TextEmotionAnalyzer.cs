@@ -15,4 +15,9 @@ public class TextEmotionAnalyzer : EmotionAnalyzer
         string result = runner.RunScript(pythonScriptPath, $"\"{inputText}\"");
         return result;
     }
+
+    public override string Analyze(string imagePath, string additionalArgument)
+    {
+        throw new NotImplementedException();
+    }
 }
