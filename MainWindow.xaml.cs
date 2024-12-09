@@ -4,13 +4,15 @@ using System.Windows.Controls;
 
 public partial class MainWindow : Window
 {
+    public TextBox? TextInputBox { get; set; }
+
     public void InitializeComponent()
     {
         // Auto-generated method to initialize the components
     }
     private FacialEmotionAnalyzer facialAnalyzer;
     private TextEmotionAnalyzer textAnalyzer;
-    private TextBox TextInputBox;
+
 
     public MainWindow()
     {
@@ -41,6 +43,7 @@ public partial class MainWindow : Window
     private void AnalyzeTextEmotion_Click(object sender, RoutedEventArgs e)
     {
         string inputText = TextInputBox.Text;
+           
         textAnalyzer = new TextEmotionAnalyzer("text_emotion_script.py", inputText);
 
         string result = textAnalyzer.Analyze();

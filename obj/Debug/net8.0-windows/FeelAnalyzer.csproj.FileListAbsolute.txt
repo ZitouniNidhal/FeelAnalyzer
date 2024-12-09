@@ -1,0 +1,11 @@
+C:\Users\nidha\OneDrive\Bureau\FeelAnalyzer\obj\Debug\net8.0-windows\FeelAnalyzer.csproj.AssemblyReference.cache
+C:\Users\nidha\OneDrive\Bureau\FeelAnalyzer\obj\Debug\net8.0-windows\MainWindow.baml
+C:\Users\nidha\OneDrive\Bureau\FeelAnalyzer\obj\Debug\net8.0-windows\MainWindow.g.cs
+C:\Users\nidha\OneDrive\Bureau\FeelAnalyzer\obj\Debug\net8.0-windows\App.g.cs
+C:\Users\nidha\OneDrive\Bureau\FeelAnalyzer\obj\Debug\net8.0-windows\FeelAnalyzer_MarkupCompile.cache
+C:\Users\nidha\OneDrive\Bureau\FeelAnalyzer\obj\Debug\net8.0-windows\FeelAnalyzer.g.resources
+C:\Users\nidha\OneDrive\Bureau\FeelAnalyzer\obj\Debug\net8.0-windows\FeelAnalyzer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\nidha\OneDrive\Bureau\FeelAnalyzer\obj\Debug\net8.0-windows\FeelAnalyzer.AssemblyInfoInputs.cache
+C:\Users\nidha\OneDrive\Bureau\FeelAnalyzer\obj\Debug\net8.0-windows\FeelAnalyzer.AssemblyInfo.cs
+C:\Users\nidha\OneDrive\Bureau\FeelAnalyzer\obj\Debug\net8.0-windows\FeelAnalyzer.csproj.CoreCompileInputs.cache
+C:\Users\nidha\OneDrive\Bureau\FeelAnalyzer\obj\Debug\net8.0-windows\FeelAnalyzer.sourcelink.json
