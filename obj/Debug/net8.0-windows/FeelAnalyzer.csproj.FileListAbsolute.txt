@@ -1,3 +1,9 @@
+C:\Users\nidha\OneDrive\Bureau\FeelAnalyzer\bin\Debug\net8.0-windows\FeelAnalyzer.exe
+C:\Users\nidha\OneDrive\Bureau\FeelAnalyzer\bin\Debug\net8.0-windows\FeelAnalyzer.deps.json
+C:\Users\nidha\OneDrive\Bureau\FeelAnalyzer\bin\Debug\net8.0-windows\FeelAnalyzer.runtimeconfig.json
+C:\Users\nidha\OneDrive\Bureau\FeelAnalyzer\bin\Debug\net8.0-windows\FeelAnalyzer.dll
+C:\Users\nidha\OneDrive\Bureau\FeelAnalyzer\bin\Debug\net8.0-windows\FeelAnalyzer.pdb
+C:\Users\nidha\OneDrive\Bureau\FeelAnalyzer\bin\Debug\net8.0-windows\OpenCvSharp.dll
 C:\Users\nidha\OneDrive\Bureau\FeelAnalyzer\obj\Debug\net8.0-windows\FeelAnalyzer.csproj.AssemblyReference.cache
 C:\Users\nidha\OneDrive\Bureau\FeelAnalyzer\obj\Debug\net8.0-windows\MainWindow.baml
 C:\Users\nidha\OneDrive\Bureau\FeelAnalyzer\obj\Debug\net8.0-windows\MainWindow.g.cs
@@ -9,3 +15,9 @@ C:\Users\nidha\OneDrive\Bureau\FeelAnalyzer\obj\Debug\net8.0-windows\FeelAnalyze
 C:\Users\nidha\OneDrive\Bureau\FeelAnalyzer\obj\Debug\net8.0-windows\FeelAnalyzer.AssemblyInfo.cs
 C:\Users\nidha\OneDrive\Bureau\FeelAnalyzer\obj\Debug\net8.0-windows\FeelAnalyzer.csproj.CoreCompileInputs.cache
 C:\Users\nidha\OneDrive\Bureau\FeelAnalyzer\obj\Debug\net8.0-windows\FeelAnalyzer.sourcelink.json
+C:\Users\nidha\OneDrive\Bureau\FeelAnalyzer\obj\Debug\net8.0-windows\FeelAnal.2384BEC9.Up2Date
+C:\Users\nidha\OneDrive\Bureau\FeelAnalyzer\obj\Debug\net8.0-windows\FeelAnalyzer.dll
+C:\Users\nidha\OneDrive\Bureau\FeelAnalyzer\obj\Debug\net8.0-windows\refint\FeelAnalyzer.dll
+C:\Users\nidha\OneDrive\Bureau\FeelAnalyzer\obj\Debug\net8.0-windows\FeelAnalyzer.pdb
+C:\Users\nidha\OneDrive\Bureau\FeelAnalyzer\obj\Debug\net8.0-windows\FeelAnalyzer.genruntimeconfig.cache
+C:\Users\nidha\OneDrive\Bureau\FeelAnalyzer\obj\Debug\net8.0-windows\ref\FeelAnalyzer.dll

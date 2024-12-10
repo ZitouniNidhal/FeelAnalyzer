@@ -1,18 +1,18 @@
 ﻿FeelAnalyzer
-1.0.0.0
+
 
 winexe
 C#
 .cs
-c:\Users\nidha\OneDrive\Bureau\FeelAnalyzer\obj\Debug\net8.0-windows\
+C:\Users\nidha\OneDrive\Bureau\FeelAnalyzer\obj\Debug\net8.0-windows\
 FeelAnalyzer
 none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
-c:\Users\nidha\OneDrive\Bureau\FeelAnalyzer\App.xaml
+C:\Users\nidha\OneDrive\Bureau\FeelAnalyzer\App.xaml
 11407045341
 
-10-1632600822
+8-1950491526
 1991118700240
 MainWindow.xaml;
 
