@@ -8,43 +8,39 @@ namespace EmotionApp
 {
     public partial class MainWindow : Window
     {
-        private FacialEmotionAnalyzer facialAnalyzer;
-        private TextEmotionAnalyzer textAnalyzer;
+        private FacialEmotionAnalyzer _facialAnalyzer;
+        private TextEmotionAnalyzer _textAnalyzer;
 
         public MainWindow()
         {
             InitializeComponent();
 
-            // Initialiser les analyseurs avec les chemins des scripts Python
-            facialAnalyzer = new FacialEmotionAnalyzer("facial_emotion_script.py");
-            textAnalyzer = new TextEmotionAnalyzer("text_emotion_script.py", string.Empty);
+            // Initialisation des analyseurs avec les chemins des scripts Python
+            _facialAnalyzer = new FacialEmotionAnalyzer("facial_emotion_script.py");
+            _textAnalyzer = new TextEmotionAnalyzer("text_emotion_script.py", string.Empty);
         }
 
-        // Méthode pour analyser les émotions faciales
+        // Analyse des émotions faciales
         private void AnalyzeFacialEmotion_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                // Indiquer que l'analyse est en cours
-                FeedbackLabel.Content = "Analyse faciale en cours...";
+                UpdateStatus("Analyse faciale en cours...");
 
-                // Appel de l'analyseur facial et affichage du résultat
-                string result = facialAnalyzer.Analyze();
+                // Simulation d'analyse faciale
+                string result = _facialAnalyzer.Analyze();
                 MessageBox.Show($"Résultat de l'analyse faciale : {result}", "Résultat");
 
-                // Mettre à jour l'état de l'application
-                FeedbackLabel.Content = "Analyse faciale terminée.";
+                UpdateStatus("Analyse faciale terminée.");
                 SaveResultToFile(result, "facial_emotion_result.txt");
             }
             catch (Exception ex)
             {
-                // Gestion des erreurs avec un message d'alerte
-                FeedbackLabel.Content = "Erreur lors de l'analyse faciale.";
-                MessageBox.Show($"Erreur lors de l'analyse faciale : {ex.Message}", "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
+                HandleError("Erreur lors de l'analyse faciale", ex);
             }
         }
 
-        // Méthode pour analyser les émotions textuelles
+        // Analyse des émotions textuelles
         private void AnalyzeTextEmotion_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -56,25 +52,23 @@ namespace EmotionApp
                 }
 
                 string inputText = TextInputBox.Text;
-                textAnalyzer = new TextEmotionAnalyzer("text_emotion_script.py", inputText);
+                _textAnalyzer = new TextEmotionAnalyzer("text_emotion_script.py", inputText);
 
-                // Indiquer que l'analyse est en cours
-                FeedbackLabel.Content = "Analyse textuelle en cours...";
+                UpdateStatus("Analyse textuelle en cours...");
 
-                string result = textAnalyzer.Analyze();
+                string result = _textAnalyzer.Analyze();
                 MessageBox.Show($"Résultat de l'analyse textuelle : {result}", "Résultat");
 
-                FeedbackLabel.Content = "Analyse textuelle terminée.";
+                UpdateStatus("Analyse textuelle terminée.");
                 SaveResultToFile(result, "text_emotion_result.txt");
             }
             catch (Exception ex)
             {
-                FeedbackLabel.Content = "Erreur lors de l'analyse textuelle.";
-                MessageBox.Show($"Erreur lors de l'analyse textuelle : {ex.Message}", "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
+                HandleError("Erreur lors de l'analyse textuelle", ex);
             }
         }
 
-        // Méthode pour sauvegarder les résultats dans un fichier
+        // Sauvegarde des résultats dans un fichier
         private void SaveResultToFile(string result, string fileName)
         {
             try
@@ -85,17 +79,11 @@ namespace EmotionApp
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Erreur lors de la sauvegarde du fichier : {ex.Message}", "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
+                HandleError("Erreur lors de la sauvegarde du fichier", ex);
             }
         }
 
-        // Méthode pour quitter l'application
-        private void ExitApp_Click(object sender, RoutedEventArgs e)
-        {
-            Application.Current.Shutdown();
-        }
-
-        // Méthode pour ouvrir un fichier de texte existant
+        // Chargement d'un fichier texte dans la TextBox
         private void LoadTextFile_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog
@@ -112,19 +100,19 @@ namespace EmotionApp
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"Erreur lors de l'ouverture du fichier : {ex.Message}", "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
+                    HandleError("Erreur lors de l'ouverture du fichier", ex);
                 }
             }
         }
 
-        // Méthode pour copier le résultat dans le presse-papier
+        // Copier le résultat dans le presse-papier
         private void CopyResultToClipboard_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                if (FeedbackLabel.Content != null && !string.IsNullOrWhiteSpace(FeedbackLabel.Content.ToString()))
+                if (!string.IsNullOrWhiteSpace(StatusTextBlock.Text))
                 {
-                    Clipboard.SetText(FeedbackLabel.Content.ToString());
+                    Clipboard.SetText(StatusTextBlock.Text);
                     MessageBox.Show("Résultat copié dans le presse-papier.", "Succès", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
                 else
@@ -134,42 +122,62 @@ namespace EmotionApp
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Erreur lors de la copie du résultat : {ex.Message}", "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
+                HandleError("Erreur lors de la copie du résultat", ex);
             }
+        }
+
+        // Quitter l'application
+        private void ExitApp_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+
+        // Mise à jour de l'état
+        private void UpdateStatus(string message)
+        {
+            StatusTextBlock.Text = message;
+        }
+
+        // Gestion des erreurs
+        private void HandleError(string errorMessage, Exception ex)
+        {
+            UpdateStatus(errorMessage);
+            MessageBox.Show($"{errorMessage}\nDétails : {ex.Message}", "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
         }
     }
 
-    // Exemple simplifié des classes des analyseurs (Facial et Textuel)
+    // Simulateur d'analyse faciale
     public class FacialEmotionAnalyzer
     {
-        private string scriptPath;
+        private string _scriptPath;
 
         public FacialEmotionAnalyzer(string scriptPath)
         {
-            this.scriptPath = scriptPath;
+            _scriptPath = scriptPath;
         }
 
         public string Analyze()
         {
-            // Simulation d'appel au script Python
+            // Simulation de l'appel d'un script Python
             return "Émotion détectée : Joie";
         }
     }
 
+    // Simulateur d'analyse textuelle
     public class TextEmotionAnalyzer
     {
-        private string scriptPath;
-        private string inputText;
+        private string _scriptPath;
+        private string _inputText;
 
         public TextEmotionAnalyzer(string scriptPath, string inputText)
         {
-            this.scriptPath = scriptPath;
-            this.inputText = inputText;
+            _scriptPath = scriptPath;
+            _inputText = inputText;
         }
 
         public string Analyze()
         {
-            // Simulation d'appel au script Python
+            // Simulation de l'appel d'un script Python
             return "Émotion détectée : Tristesse";
         }
     }
